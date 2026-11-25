@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f8ecd8">
+<title>Abhishek &amp; Anjusha Wedding</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Cinzel+Decorative:wght@400;700&family=Great+Vibes&family=Alex+Brush&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbf1e1;--card:#fffaf0;--ink:#3b3a2c;--muted:#6f6a55;--gold:#b08a3e;--line:rgba(176,138,62,.5);--blue:#1f4e79;--pink:#df7d9c;--leaf:#5f7a46;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;line-height:1.5;text-align:center;overflow-x:hidden}
+body.lock{overflow:hidden;height:100%}
+.disp{font-family:'Cinzel Decorative',Georgia,serif}
+.script{font-family:'Great Vibes','Brush Script MT',cursive;font-weight:400}
+.cp{font-family:'Alex Brush','Great Vibes',cursive;font-size:1.12em}
+/* hero card uses the illustration; its own cream is fixed so text colours here are fixed too */
+.hero{max-width:480px;margin:0 auto;position:relative;aspect-ratio:2/3;background:#fbf1e1 url("hero.jpg") center/100% 100% no-repeat;color:#3b3a2c}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:48px;background:linear-gradient(transparent,var(--bg))}
+.ht{position:absolute;left:20%;right:20%;top:13%;display:flex;flex-direction:column;align-items:center}
+.ht .om{font-size:min(6vw,26px);color:#b08a3e;line-height:1}
+.ht small{font-size:min(2.5vw,11px);letter-spacing:.22em;margin:4px 0 0;color:#6f6a55}
+.ht .n{font-size:min(12vw,56px);line-height:.95;color:#1f4e79;margin:0}
+.ht .a{font-size:min(5vw,22px);color:#b08a3e;margin:-2px 0}
+.ht .d{margin-top:6px;font-size:min(3.2vw,14px);letter-spacing:.2em;font-weight:600;color:#3b3a2c}
+.ht .t{font-size:min(3.2vw,14px);letter-spacing:.12em;color:#6f6a55;font-style:italic}
+section{max-width:620px;margin:0 auto;padding:46px 22px}
+h2{font-size:14px;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:0 0 20px}
+.orn{color:var(--pink);letter-spacing:.6em;margin:6px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 18px;margin-bottom:16px;box-shadow:0 6px 18px rgba(95,122,70,.12)}
+.card h3{margin:0 0 6px;font-size:22px;color:var(--blue);font-weight:700;letter-spacing:.06em}
+.card p{margin:3px 0;color:var(--muted)}
+.card .big{color:var(--ink);font-size:22px}
+.card .nm{font-size:44px;color:var(--blue);line-height:1.1;margin:0}
+.small{font-size:16px;font-style:italic;color:var(--muted)}
+.cd{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.cd div{border:1px solid var(--line);border-radius:12px;padding:14px 2px;background:var(--card)}
+.cd b{display:block;font-size:32px;color:var(--blue);font-weight:600}
+.cd span{font-size:11px;letter-spacing:.2em;color:var(--gold)}
+.btn{display:inline-block;margin-top:18px;border:1px solid var(--gold);color:var(--ink);padding:11px 26px;border-radius:30px;text-decoration:none;letter-spacing:.2em;font-size:13px;font-weight:600}
+.btn.fill{background:var(--blue);border-color:var(--blue);color:#fff}
+.rv{opacity:0;transform:translateY(34px);transition:opacity 1s ease,transform 1s ease}
+.rv.in{opacity:1;transform:none}
+footer{padding:20px 22px 90px;color:var(--muted);font-size:17px}
+#cover{position:fixed;inset:0;z-index:60;overflow:hidden;background:#efe0bf;transition:opacity 1.5s ease,transform 1.8s ease}
+#cover.open{opacity:0;transform:scale(1.12);pointer-events:none}
+#cover.gone{display:none}
+.bgb{position:absolute;inset:-40px;background:url("cover.jpg") center/cover no-repeat;filter:blur(22px)}
+.frame{position:absolute;inset:0;background:url("cover.jpg") center/cover no-repeat;container-type:inline-size;animation:zm 16s ease-in-out infinite alternate}
+@media (min-aspect-ratio:2/3){.frame{margin:auto;height:min(100svh,150.6vw);width:min(100vw,66.4svh);background-size:100% 100%;box-shadow:0 0 40px rgba(60,40,10,.3)}}
+@keyframes zm{from{transform:scale(1)}to{transform:scale(1.035)}}
+#embers{position:absolute;inset:0;z-index:1;pointer-events:none}
+.em{position:absolute;bottom:-10px;border-radius:50%;background:#e0a233;box-shadow:0 0 8px 2px #f2c46a;opacity:0;animation:rise linear infinite}
+@keyframes rise{0%{opacity:0;transform:translate(0,0)}10%{opacity:.9}100%{opacity:0;transform:translate(var(--dx),-105vh)}}
+.cc{position:absolute;inset:0;z-index:2;cursor:pointer;color:#3b2a1a;text-align:center}
+.cc>div{position:absolute;display:flex;flex-direction:column;align-items:center;opacity:0;animation:up 1.6s ease forwards}
+.top{left:22%;right:22%;top:19%}
+.bot{left:50%;right:11%;top:66%;animation-delay:1.2s!important}
+@keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.cc .om{font-size:min(7vw,6cqw);font-size:6cqw;color:#a47a24;line-height:1}
+.cc small{font-size:min(2.6vw,11px);font-size:2.5cqw;letter-spacing:.24em;margin:5px 0;color:#5b4a2e;font-weight:600}
+.cc .names{font-size:min(12vw,50px);font-size:12.5cqw;line-height:1;color:#1f4e79;margin:2px 0}
+.cc .names i{display:block;font-style:normal;font-size:.4em;color:#a47a24;margin:2px 0}
+.tap{margin-top:8px;border:1px solid #7b5a1e;background:rgba(255,250,235,.7);padding:9px 14px;border-radius:30px;letter-spacing:.2em;font-size:min(2.6vw,12px);font-size:2.6cqw;font-weight:700;color:#3b2a1a;animation:glow 2.4s ease-in-out infinite}
+@keyframes glow{50%{box-shadow:0 0 18px rgba(224,162,51,.8)}}
+@media (prefers-reduced-motion:reduce){.em,#embers .p{display:none}.frame{animation:none}}
+#petals{position:fixed;inset:0;pointer-events:none;z-index:40;overflow:hidden}
+.p{position:absolute;top:-30px;width:11px;height:15px;background:var(--pink);border-radius:100% 0 100% 0;opacity:.5;animation:fall linear infinite}
+.p.g{background:var(--gold);width:6px;height:6px;border-radius:50%}
+@keyframes fall{to{transform:translate(var(--dx),110vh) rotate(540deg)}}
+#mus{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:70;width:46px;height:46px;border-radius:50%;border:1px solid var(--gold);background:var(--card);color:var(--gold);font-size:20px;cursor:pointer;display:none}
+@media (prefers-reduced-motion:reduce){.p{display:none}.rv{transition:none;opacity:1;transform:none}}
+</style>
+</head>
+<body class="lock">
+
+<div id="cover">
+  <div class="bgb"></div>
+  <div id="embers"></div>
+  <div class="frame">
+    <div class="cc" onclick="openInvite()">
+      <div class="top">
+        <div class="om">ॐ</div>
+        <small>WITH THE BLESSINGS OF OUR FAMILIES</small>
+        <div class="names script"><span class="cp">A</span>bhishek<i>weds</i><span class="cp">A</span>njusha</div>
+        <small>SUNDAY · 31 JANUARY 2027</small>
+      </div>
+      <div class="bot">
+        <small>KOZHIKODE · KERALA</small>
+        <div class="tap">TAP TO OPEN</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="petals"></div>
+<audio id="song" loop preload="none" src="song.mp3"></audio>
+<button id="mus" aria-label="Toggle music" onclick="toggleMusic()">♪</button>
+
+<div class="hero">
+  <div class="ht">
+    <div class="om">ॐ</div>
+    <small>WITH THE BLESSINGS OF OUR FAMILIES</small>
+    <div class="n script"><span class="cp">A</span>bhishek</div>
+    <div class="a script">weds</div>
+    <div class="n script"><span class="cp">A</span>njusha</div>
+    <div class="d">SUNDAY · 31 JANUARY 2027</div>
+    <div class="t">Muhurtham 11:15 AM</div>
+  </div>
+</div>
+
+<section>
+  <h2 class="rv">Together with our families</h2>
+  <div class="card rv">
+    <h3 class="script" style="font-size:42px;font-weight:400"><span class="cp">A</span>bhishek</h3>
+    <p>S/o Mrs. Bini Vijayan<br>&amp; Late Vijayan Naduthodi (Army Retd.)</p>
+    <p class="small">“Sreedevi”, Ullelummeethal, Chevayur P.O,<br>Thondayad, Kozhikode<br>Ph: 9526125061, 9809929618</p>
+  </div>
+  <div class="orn rv">❀ ❀ ❀</div>
+  <div class="card rv">
+    <h3 class="script" style="font-size:42px;font-weight:400"><span class="cp">A</span>njusha</h3>
+    <p>D/o Sanil Kumar K.T.<br>&amp; Sakunthala Sanil</p>
+    <p class="small">Puthiyottil (H), Kaloor Thottooli, Kottooli P.O</p>
+  </div>
+  <p class="rv">Cordially invite you and your family to grace the auspicious occasion of our son’s wedding with your esteemed presence and blessings.</p>
+</section>
+
+<section>
+  <h2 class="rv">Celebrations</h2>
+  <div class="card rv">
+    <h3 class="disp">Wedding</h3>
+    <p class="big">Sunday, 31 January 2027</p>
+    <p class="big">Muhurtham: 11:15 AM – 12:00 PM</p>
+    <p>Desaposhini Community Hall, Kuthiravattom, Calicut</p>
+  </div>
+  <div class="card rv">
+    <h3 class="disp">Reception</h3>
+    <p class="big">Monday, 1 February 2027</p>
+    <p class="big">5:00 PM – 9:00 PM</p>
+    <p>Desaposhini Community Hall, Kuthiravattom, Calicut</p>
+  </div>
+</section>
+
+<section>
+  <h2 class="rv">Countdown</h2>
+  <div class="cd rv">
+    <div><b id="d">00</b><span>DAYS</span></div>
+    <div><b id="h">00</b><span>HOURS</span></div>
+    <div><b id="m">00</b><span>MINS</span></div>
+    <div><b id="s">00</b><span>SECS</span></div>
+  </div>
+  <p class="rv" style="margin-top:20px">We can’t wait to celebrate with you</p>
+  <a class="btn rv" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Abhishek+%26+Anjusha+Wedding&amp;dates=20270131T054500Z/20270131T063000Z&amp;details=Reception+on+1+Feb+2027,+5-9+PM&amp;location=Desaposhini+Community+Hall,+Kuthiravattom,+Calicut">ADD TO CALENDAR</a>
+</section>
+
+<section>
+  <h2 class="rv">Meet Us Here</h2>
+  <div class="card rv">
+    <h3 class="disp" style="font-size:19px">Desaposhini Community Hall</h3>
+    <p>Kuthiravattom, Calicut</p>
+    <a class="btn fill" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Desaposhini+Community+Hall+Kuthiravattom+Calicut">VIEW LOCATION</a>
+  </div>
+</section>
+
+<footer class="rv"><div class="orn">❀</div>Best compliments from: Abhinand N. &amp; Family</footer>
+
+<script>
+var song=document.getElementById('song'),mus=document.getElementById('mus');
+function openInvite(){
+  var c=document.getElementById('cover');
+  c.classList.add('open');document.body.classList.remove('lock');
+  try{var p=song.play();if(p&&p.catch)p.catch(function(){});}catch(e){}
+  setTimeout(function(){c.classList.add('gone');},1700);
+}
+song.addEventListener('canplay',function(){mus.style.display='block';});
+song.addEventListener('error',function(){mus.style.display='none';});
+function toggleMusic(){if(song.paused){song.play();mus.style.opacity=1;}else{song.pause();mus.style.opacity=.5;}}
+var pw=document.getElementById('petals');
+for(var i=0;i<18;i++){var s=document.createElement('span');s.className='p'+(i%4==0?' g':'');
+s.style.left=Math.random()*100+'%';s.style.setProperty('--dx',(Math.random()*120-60)+'px');
+s.style.animationDuration=(9+Math.random()*9)+'s';s.style.animationDelay=(-Math.random()*14)+'s';pw.appendChild(s);}
+var eb=document.getElementById('embers');
+for(var j=0;j<30;j++){var e=document.createElement('span');e.className='em';var z=3+Math.random()*4;
+e.style.cssText='left:'+Math.random()*100+'%;width:'+z+'px;height:'+z+'px;animation-duration:'+(8+Math.random()*10)+'s;animation-delay:'+(-Math.random()*14)+'s;--dx:'+(Math.random()*80-40)+'px';eb.appendChild(e);}
+for(var k=0;k<12;k++){var q=document.createElement('span');q.className='p';
+q.style.left=Math.random()*100+'%';q.style.setProperty('--dx',(Math.random()*120-60)+'px');
+q.style.animationDuration=(9+Math.random()*8)+'s';q.style.animationDelay=(-Math.random()*12)+'s';eb.appendChild(q);}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.15});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+var target=new Date('2027-01-31T11:15:00+05:30').getTime();
+function pad(n){return String(n).padStart(2,'0');}
+function tick(){var t=Math.max(0,target-Date.now());
+document.getElementById('d').textContent=pad(Math.floor(t/864e5));
+document.getElementById('h').textContent=pad(Math.floor(t%864e5/36e5));
+document.getElementById('m').textContent=pad(Math.floor(t%36e5/6e4));
+document.getElementById('s').textContent=pad(Math.floor(t%6e4/1e3));}
+tick();setInterval(tick,1000);
+</script>
+</body>
+</html>
